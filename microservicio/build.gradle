@@ -99,6 +99,6 @@ dependencies {
 
 bootJar {
 	mainClassName = 'com.ceiba.Application'
-    baseName = 'guarderia-perros-app'
+    baseName = ''
     version =  version
 }
