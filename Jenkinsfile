@@ -11,7 +11,7 @@ pipeline{
     }
 
     tools {
-        jdk 'JDK14_Centos'
+        jdk 'JDK11_Centos'
     }
 
     stages{
