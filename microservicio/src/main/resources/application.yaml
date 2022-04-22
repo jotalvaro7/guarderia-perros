@@ -12,9 +12,9 @@ server:
 
 spring:
    datasource:
-      driver-class-name: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: jdbc:mysql://localhost:3306/guarderia_perros_db?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTime
+      jdbcUrl: jdbc:mysql://localhost:3306/guarderia_perros_db?useSSL=false&createDatabaseIfNotExist=true&serverTime&allowPublicKeyRetrieval=true
       username: root
       password: ceiba
       hikari:
