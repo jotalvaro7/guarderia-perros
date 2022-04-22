@@ -14,7 +14,7 @@ spring:
    datasource:
       driver-class-name: com.mysql.jdbc.Driver
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: jdbc:mysql://localhost:3306/guarderia_perros_db?useSSL=false&createDatabaseIfNotExist=true&serverTime
+      jdbcUrl: jdbc:mysql://localhost:3306/guarderia_perros_db?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTime
       username: root
       password: ceiba
       hikari:
