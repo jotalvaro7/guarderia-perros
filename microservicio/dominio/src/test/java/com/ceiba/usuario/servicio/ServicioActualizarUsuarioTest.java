@@ -9,6 +9,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class ServicioActualizarUsuarioTest {
 
     @Test
@@ -35,5 +37,9 @@ public class ServicioActualizarUsuarioTest {
         servicioActualizarUsuario.ejecutar(usuario);
         //assert
         Mockito.verify(repositorioUsuario,Mockito.times(1)).actualizar(usuario);
+        assertEquals("Marcos", usuario.getNombre());
+        assertEquals("Alonso", usuario.getApellido());
+        assertEquals("888000", usuario.getIdentificacion());
+        assertEquals("5555", usuario.getNumeroCelular());
     }
 }

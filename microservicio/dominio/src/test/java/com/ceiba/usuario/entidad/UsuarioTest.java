@@ -1,12 +1,16 @@
 package com.ceiba.usuario.entidad;
 
 import com.ceiba.BasePrueba;
+import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.usuario.modelo.entidad.Usuario;
+import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
+import com.ceiba.usuario.servicio.ServicioCrearUsuario;
 import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.time.LocalDateTime;
 
@@ -14,67 +18,122 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UsuarioTest {
 
+//    @Test
+//    @DisplayName("Deberia crear correctamente el usuario")
+//    void deberiaCrearCorrectamenteElUsusuario() {
+//        // arrange
+//        LocalDateTime fechaCreacion = LocalDateTime.now();
+//        //act
+//        Usuario usuario = new UsuarioTestDataBuilder().conFechaCreacion(fechaCreacion).conId(1L).build();
+//        //assert
+//        assertEquals(1, usuario.getId());
+//        assertEquals("1234", usuario.getNombre());
+//        assertEquals("1234", usuario.getClave());
+//        assertEquals(fechaCreacion, usuario.getFechaCreacion());
+//    }
+
     @Test
     @DisplayName("Deberia crear correctamente el usuario")
     void deberiaCrearCorrectamenteElUsusuario() {
-        // arrange
-        LocalDateTime fechaCreacion = LocalDateTime.now();
-        //act
-        Usuario usuario = new UsuarioTestDataBuilder().conFechaCreacion(fechaCreacion).conId(1L).build();
-        //assert
+        //arrange
+        Usuario usuario = new UsuarioTestDataBuilder()
+                .conNombre("Diego")
+                .conApellido("Lopez")
+                .conIdentificacion("10369443")
+                .conNumeroCelular("789456")
+                .conId(1L).build();
+        //
         assertEquals(1, usuario.getId());
-        assertEquals("1234", usuario.getNombre());
-        assertEquals("1234", usuario.getClave());
-        assertEquals(fechaCreacion, usuario.getFechaCreacion());
+        assertEquals("Diego", usuario.getNombre());
+        assertEquals("Lopez", usuario.getApellido());
+        assertEquals("10369443", usuario.getIdentificacion());
+        assertEquals("789456", usuario.getNumeroCelular());
     }
 
     @Test
-    void deberiaFallarSinNombreDeUsuario() {
-
-        //Arrange
-        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conNombre(null).conId(1L);
-        //act-assert
-        BasePrueba.assertThrows(() -> {
-                    usuarioTestDataBuilder.build();
-                },
-                ExcepcionValorObligatorio.class, "Se debe ingresar el nombre de usuario");
+    @DisplayName("Deberia lanzar una excepcion cuando el nombre del usuario es vacio")
+    void deberiaLanzarUnaExepcionCuandoElNombreDeUsuarioEsVacio() {
+        // arrange
+        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conNombre("");
+        // act - assert
+        BasePrueba.assertThrows(usuarioTestDataBuilder::build, ExcepcionValorObligatorio.class, "Se debe ingresar el nombre de usuario");
     }
 
     @Test
-    void deberiaFallarSinClave() {
-
-        //Arrange
-        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conClave(null).conId(1L);
-        //act-assert
-        BasePrueba.assertThrows(() -> {
-                    usuarioTestDataBuilder.build();
-                },
-                ExcepcionValorObligatorio.class, "Se debe ingresar la clave");
+    @DisplayName("Deberia lanzar una excepcion cuando el nombre del usuario es null")
+    void deberiaLanzarUnaExepcionCuandoElNombreDeUsuarioEsNull() {
+        // arrange
+        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conNombre(null);
+        // act - assert
+        BasePrueba.assertThrows(usuarioTestDataBuilder::build, ExcepcionValorObligatorio.class, "Se debe ingresar el nombre de usuario");
     }
 
     @Test
-    void deberiaFallarSinTamanioClave() {
-
-        //Arrange
-        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conClave("123").conId(1L);
-        //act-assert
-        BasePrueba.assertThrows(() -> {
-                    usuarioTestDataBuilder.build();
-                },
-                ExcepcionLongitudValor.class, "La clave debe tener una longitud mayor o igual a 4");
+    @DisplayName("Deberia lanzar una excepcion cuando el apellido del usuario es vacio")
+    void deberiaLanzarUnaExepcionCuandoElApellidoDeUsuarioEsVacio() {
+        // arrange
+        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conApellido("");
+        // act - assert
+        BasePrueba.assertThrows(usuarioTestDataBuilder::build, ExcepcionValorObligatorio.class, "Se debe ingresar el apellido de usuario");
     }
 
     @Test
-    void deberiaFallarSinFechaCreacion() {
-
-        //Arrange
-        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conFechaCreacion(null).conId(1L);
-        //act-assert
-        BasePrueba.assertThrows(() -> {
-                    usuarioTestDataBuilder.build();
-                },
-                ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de creación");
+    @DisplayName("Deberia lanzar una excepcion cuando el apellido del usuario es null")
+    void deberiaLanzarUnaExepcionCuandoElApellidoDeUsuarioEsNull() {
+        // arrange
+        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conApellido(null);
+        // act - assert
+        BasePrueba.assertThrows(usuarioTestDataBuilder::build, ExcepcionValorObligatorio.class, "Se debe ingresar el apellido de usuario");
     }
+
+    @Test
+    @DisplayName("Deberia lanzar una excepcion cuando la identificacion del usuario es vacio")
+    void deberiaLanzarUnaExepcionCuandoLaIdentificacionDeUsuarioEsVacio() {
+        // arrange
+        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conIdentificacion("");
+        // act - assert
+        BasePrueba.assertThrows(usuarioTestDataBuilder::build, ExcepcionValorObligatorio.class, "Se debe ingresar la identificacion de usuario");
+    }
+
+    @Test
+    @DisplayName("Deberia lanzar una excepcion cuando la identificacion del usuario es null")
+    void deberiaLanzarUnaExepcionCuandoLaIdentificacionDeUsuarioEsNull() {
+        // arrange
+        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conIdentificacion(null);
+        // act - assert
+        BasePrueba.assertThrows(usuarioTestDataBuilder::build, ExcepcionValorObligatorio.class, "Se debe ingresar la identificacion de usuario");
+    }
+
+    @Test
+    @DisplayName("Deberia lanzar una excepcion cuando la identificacion del usuario es vacio")
+    void deberiaLanzarUnaExepcionCuandoElNumeroCelularDeUsuarioEsVacio() {
+        // arrange
+        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conNumeroCelular("");
+        // act - assert
+        BasePrueba.assertThrows(usuarioTestDataBuilder::build, ExcepcionValorObligatorio.class, "Se debe ingresar el numero de celular de usuario");
+    }
+
+    @Test
+    @DisplayName("Deberia lanzar una excepcion cuando la identificacion del usuario es null")
+    void deberiaLanzarUnaExepcionCuandoElNumeroCelularDeUsuarioEsNull() {
+        // arrange
+        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conNumeroCelular(null);
+        // act - assert
+        BasePrueba.assertThrows(usuarioTestDataBuilder::build, ExcepcionValorObligatorio.class, "Se debe ingresar el numero de celular de usuario");
+    }
+
+    @Test
+    @DisplayName("Deberia lanzar una exepcion cuando se valide la existencia del Usuario")
+    void deberiaLanzarUnaExepcionCuandoSeValideLaExistenciaDelUsuario() {
+        // arrange
+        Usuario usuario = new UsuarioTestDataBuilder().build();
+        RepositorioUsuario repositorioUsuario = Mockito.mock(RepositorioUsuario.class);
+        Mockito.when(repositorioUsuario.existe(Mockito.anyString())).thenReturn(true);
+        ServicioCrearUsuario servicioCrearUsuario = new ServicioCrearUsuario(repositorioUsuario);
+        // act - assert
+        BasePrueba.assertThrows(() -> servicioCrearUsuario.ejecutar(usuario), ExcepcionDuplicidad.class,"El usuario ya existe en el sistema");
+    }
+
 
 
 }

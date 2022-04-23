@@ -7,18 +7,35 @@ import java.time.LocalDateTime;
 public class UsuarioTestDataBuilder {
 
     private Long id;
-    private String nombreUsuario;
-    private String clave;
-    private LocalDateTime fecha;
+    private String nombre;
+    private String apellido;
+    private String identificacion;
+    private String numeroCelular;
 
     public UsuarioTestDataBuilder() {
-        nombreUsuario = "1234";
-        clave = "1234";
-        fecha = LocalDateTime.now();
+        nombre = "Marcos";
+        apellido = "Alonso";
+        identificacion = "888000";
+        numeroCelular = "5555";
     }
 
-    public UsuarioTestDataBuilder conClave(String clave) {
-        this.clave = clave;
+    public UsuarioTestDataBuilder conNumeroCelular(String numeroCelular){
+        this.numeroCelular = numeroCelular;
+        return this;
+    }
+
+    public UsuarioTestDataBuilder conIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+        return this;
+    }
+
+    public UsuarioTestDataBuilder conApellido(String apellido) {
+        this.apellido = apellido;
+        return this;
+    }
+
+    public UsuarioTestDataBuilder conNombre(String nombre) {
+        this.nombre = nombre;
         return this;
     }
 
@@ -27,17 +44,7 @@ public class UsuarioTestDataBuilder {
         return this;
     }
 
-    public UsuarioTestDataBuilder conFechaCreacion(LocalDateTime fechaCreacion) {
-        this.fecha = fechaCreacion;
-        return this;
-    }
-
-    public UsuarioTestDataBuilder conNombre(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-        return this;
-    }
-
     public Usuario build() {
-        return new Usuario(id,nombreUsuario, clave,fecha);
+        return new Usuario(id,nombre,apellido,identificacion,numeroCelular);
     }
 }
