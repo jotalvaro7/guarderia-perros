@@ -8,3 +8,4 @@ create table usuario (
 
 insert into usuario (nombre, apellido, identificacion, numeroCelular) values ('Jhon', 'Doe', '123456', '3203980337');
 insert into usuario (nombre, apellido, identificacion, numeroCelular) values ('Martin', 'Jobs', '720725', '3148067139');
+insert into usuario (nombre, apellido, identificacion, numeroCelular) values ('Carlos', 'Caceres', '01010', '314807777');

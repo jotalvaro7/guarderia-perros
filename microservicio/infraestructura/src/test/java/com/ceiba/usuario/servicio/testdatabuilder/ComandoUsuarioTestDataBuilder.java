@@ -14,10 +14,10 @@ public class ComandoUsuarioTestDataBuilder {
     private String numeroCelular;
 
     public ComandoUsuarioTestDataBuilder() {
-        nombre = "Jhon";
-        apellido = "Doe";
-        identificacion = "123456";
-        numeroCelular = "3203980337";
+        nombre = "Pepe";
+        apellido = "Perez";
+        identificacion = "00001111";
+        numeroCelular = "303030";
     }
 
     public ComandoUsuarioTestDataBuilder conNombre(String nombre) {
