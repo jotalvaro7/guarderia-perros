@@ -42,5 +42,17 @@ class ConsultaControladorUsuarioTest {
 
     }
 
+    @Test
+    @DisplayName("Deberia obtener un usuario")
+    void deberiaObtenerUsuario() throws Exception {
+
+        mocMvc.perform(get("/usuarios/2")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.nombre", is("Martin")))
+                .andExpect(jsonPath("$.apellido",  is("Jobs")))
+                .andExpect(jsonPath("$.id",  is(2)));
+    }
+
 
 }
