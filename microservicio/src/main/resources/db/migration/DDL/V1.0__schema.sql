@@ -1,7 +1,10 @@
 create table usuario (
- id int(11) not null auto_increment,
+ id int primary key auto_increment,
  nombre varchar(100) not null,
- clave varchar(45) not null,
- fecha_creacion datetime null,
- primary key (id)
+ apellido varchar(100) not null,
+ identificacion varchar(100) not null,
+ numeroCelular varchar(100) not null
 );
+
+insert into usuario (nombre, apellido, identificacion, numeroCelular) values ('Jhon', 'Doe', '123456', '3203980337');
+insert into usuario (nombre, apellido, identificacion, numeroCelular) values ('Martin', 'Jobs', '720725', '3148067139');

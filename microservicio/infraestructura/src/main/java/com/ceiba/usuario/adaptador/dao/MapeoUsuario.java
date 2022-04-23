@@ -3,8 +3,10 @@ package com.ceiba.usuario.adaptador.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.ceiba.infraestructura.jdbc.MapperResult;
+import com.ceiba.usuario.modelo.dto.DtoPerro;
 import com.ceiba.usuario.modelo.dto.DtoUsuario;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -15,10 +17,12 @@ public class MapeoUsuario implements RowMapper<DtoUsuario>, MapperResult {
 
         Long id = resultSet.getLong("id");
         String nombre = resultSet.getString("nombre");
-        String clave = resultSet.getString("clave");
-        LocalDateTime fecha = extraerLocalDateTime(resultSet, "fecha_creacion");
+        String apellido = resultSet.getString("apellido");
+        String identificacion = resultSet.getString("identificacion");
+        String numeroCelular = resultSet.getString("numeroCelular");
 
-        return new DtoUsuario(id,nombre,clave,fecha);
+        return new DtoUsuario(id,nombre,apellido,identificacion, numeroCelular);
+
     }
 
 }

@@ -23,11 +23,11 @@ public interface RepositorioUsuario {
     void eliminar(Long id);
 
     /**
-     * Permite validar si existe un usuario con un nombre
-     * @param nombre
+     * Permite validar si existe un usuario con una identificacion
+     * @param identificacion
      * @return si existe o no
      */
-    boolean existe(String nombre);
+    boolean existe(String identificacion);
 
     /**
      * Permite validar si existe un usuario con un nombre excluyendo un id
