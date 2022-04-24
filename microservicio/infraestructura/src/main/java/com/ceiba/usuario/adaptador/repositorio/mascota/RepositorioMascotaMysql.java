@@ -21,6 +21,9 @@ public class RepositorioMascotaMysql implements RepositorioMascota {
     @SqlStatement(namespace = "usuario", value = "actualizarMascota")
     private static String sqlActualizarMascota;
 
+    @SqlStatement(namespace = "usuario", value = "eliminarMascota")
+    private static String sqlEliminarMascota;
+
     public RepositorioMascotaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -37,7 +40,10 @@ public class RepositorioMascotaMysql implements RepositorioMascota {
 
     @Override
     public void eliminar(Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
 
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminarMascota, paramSource);
     }
 
     @Override
