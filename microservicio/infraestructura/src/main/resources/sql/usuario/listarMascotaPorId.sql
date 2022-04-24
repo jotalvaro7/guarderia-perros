@@ -1,0 +1,1 @@
+select * from mascota where id = :id

@@ -1,4 +1,4 @@
-package com.ceiba.usuario.consulta;
+package com.ceiba.usuario.consulta.usuario;
 
 import java.util.List;
 

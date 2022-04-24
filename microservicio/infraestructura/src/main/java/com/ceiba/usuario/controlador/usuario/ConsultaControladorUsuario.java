@@ -2,8 +2,8 @@ package com.ceiba.usuario.controlador.usuario;
 
 import java.util.List;
 
-import com.ceiba.usuario.consulta.ManejadorListarUsuarios;
-import com.ceiba.usuario.consulta.ManejadorObtenerUsuario;
+import com.ceiba.usuario.consulta.usuario.ManejadorListarUsuarios;
+import com.ceiba.usuario.consulta.usuario.ManejadorObtenerUsuario;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
