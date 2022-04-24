@@ -1,6 +1,7 @@
 package com.ceiba.usuario.servicio;
 
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
+import com.ceiba.usuario.servicio.usuario.ServicioEliminarUsuario;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

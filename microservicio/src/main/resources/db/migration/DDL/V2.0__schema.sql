@@ -1,4 +1,4 @@
-create table perro (
+create table mascota (
 
  id int primary key auto_increment,
  nombre varchar(100) not null,
@@ -9,6 +9,6 @@ create table perro (
     foreign key (idUsuario) references usuario(id)
 );
 
-insert into perro (nombre, raza, peso, fechaIngreso, idUsuario) values ('Max', 'Pastor Aleman', '10Kg', now(), 1);
-insert into perro (nombre, raza, peso, fechaIngreso, idUsuario) values ('Kaiser', 'Doberman', '13Kg', now(), 1);
-insert into perro (nombre, raza, peso, fechaIngreso, idUsuario) values ('Lucas', 'Pitbull', '11Kg', now(), 2);
+insert into mascota (nombre, raza, peso, fechaIngreso, idUsuario) values ('Max', 'Pastor Aleman', '10Kg', now(), 1);
+insert into mascota (nombre, raza, peso, fechaIngreso, idUsuario) values ('Kaiser', 'Doberman', '13Kg', now(), 1);
+insert into mascota (nombre, raza, peso, fechaIngreso, idUsuario) values ('Lucas', 'Pitbull', '11Kg', now(), 2);

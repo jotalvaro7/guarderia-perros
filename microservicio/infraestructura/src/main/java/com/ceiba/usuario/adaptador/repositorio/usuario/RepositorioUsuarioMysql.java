@@ -1,4 +1,4 @@
-package com.ceiba.usuario.adaptador.repositorio;
+package com.ceiba.usuario.adaptador.repositorio.usuario;
 
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;

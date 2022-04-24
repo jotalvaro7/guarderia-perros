@@ -1,0 +1,1 @@
+update mascota set nombre = :nombre, raza = :raza, peso = :peso where id= :id

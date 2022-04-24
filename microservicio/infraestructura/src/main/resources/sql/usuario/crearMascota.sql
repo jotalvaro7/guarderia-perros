@@ -1,0 +1,1 @@
+insert into mascota (nombre,raza,peso,fechaIngreso,idUsuario) values (:nombre, :raza, :peso, :fechaIngreso, :idUsuario)

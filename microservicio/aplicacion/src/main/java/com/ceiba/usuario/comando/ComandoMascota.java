@@ -1,14 +1,17 @@
-package com.ceiba.usuario.modelo.dto;
+package com.ceiba.usuario.comando;
 
-import com.ceiba.usuario.modelo.entidad.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Getter
+@Setter
 @AllArgsConstructor
-public class DtoPerro {
+@NoArgsConstructor
+public class ComandoMascota {
 
     private Long id;
     private String nombre;

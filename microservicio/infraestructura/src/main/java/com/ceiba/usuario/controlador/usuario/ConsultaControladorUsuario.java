@@ -1,4 +1,4 @@
-package com.ceiba.usuario.controlador;
+package com.ceiba.usuario.controlador.usuario;
 
 import java.util.List;
 

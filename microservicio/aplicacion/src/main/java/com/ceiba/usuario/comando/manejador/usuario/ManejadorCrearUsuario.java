@@ -1,9 +1,9 @@
-package com.ceiba.usuario.comando.manejador;
+package com.ceiba.usuario.comando.manejador.usuario;
 
 import com.ceiba.ComandoRespuesta;
 import com.ceiba.manejador.ManejadorComandoRespuesta;
 import com.ceiba.usuario.modelo.entidad.Usuario;
-import com.ceiba.usuario.servicio.ServicioCrearUsuario;
+import com.ceiba.usuario.servicio.usuario.ServicioCrearUsuario;
 import org.springframework.stereotype.Component;
 
 import com.ceiba.usuario.comando.ComandoUsuario;
