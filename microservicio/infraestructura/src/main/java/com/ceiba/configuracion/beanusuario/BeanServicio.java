@@ -1,4 +1,4 @@
-package com.ceiba.configuracion.beanUsuario;
+package com.ceiba.configuracion.beanusuario;
 
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
 import com.ceiba.usuario.servicio.usuario.ServicioActualizarUsuario;

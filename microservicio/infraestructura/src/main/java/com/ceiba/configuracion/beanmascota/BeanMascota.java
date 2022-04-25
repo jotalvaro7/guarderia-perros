@@ -1,4 +1,4 @@
-package com.ceiba.configuracion.beanMascota;
+package com.ceiba.configuracion.beanmascota;
 
 import com.ceiba.usuario.puerto.repositorio.RepositorioMascota;
 import com.ceiba.usuario.servicio.mascota.ServicioActualizarMascota;
