@@ -1,7 +1,9 @@
 package com.ceiba.configuracion.beanmascota;
 
+import com.ceiba.usuario.puerto.dao.DaoMascota;
 import com.ceiba.usuario.puerto.repositorio.RepositorioMascota;
 import com.ceiba.usuario.servicio.mascota.ServicioActualizarMascota;
+import com.ceiba.usuario.servicio.mascota.ServicioCobrarTiempoMascota;
 import com.ceiba.usuario.servicio.mascota.ServicioCrearMascota;
 import com.ceiba.usuario.servicio.mascota.ServicioEliminarMascota;
 import org.springframework.context.annotation.Bean;
@@ -22,5 +24,10 @@ public class BeanMascota {
     @Bean
     public ServicioEliminarMascota servicioEliminarMascota(RepositorioMascota repositorioMascota) {
         return new ServicioEliminarMascota(repositorioMascota);
+    }
+
+    @Bean
+    public ServicioCobrarTiempoMascota servicioCobrarTiempoMascota(DaoMascota daoMascota){
+        return new ServicioCobrarTiempoMascota(daoMascota);
     }
 }
