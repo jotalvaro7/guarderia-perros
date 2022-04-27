@@ -1,0 +1,1 @@
+insert into registro_mascota (idMascota, fechaIngreso) values (:idMascota, :fechaIngreso)

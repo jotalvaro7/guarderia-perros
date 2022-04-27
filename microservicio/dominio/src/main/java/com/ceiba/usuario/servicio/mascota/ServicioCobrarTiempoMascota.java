@@ -50,7 +50,8 @@ public class ServicioCobrarTiempoMascota {
         int totalValorHorasFinDeSemana = totalHorasFinDeSemana * VALOR_PESOS_POR_HORA;
         Long totalAPagar = totalValorSemanas + totalValorDias + totalValorHoras + totalMinima + totalValorHorasFinDeSemana;
 
-        return new FacturaMascota(idMascota, mascota.getNombre(), totalTiempoEnGuarderia, totalAPagar);
+        //return new FacturaMascota(idMascota, mascota.getNombre(), totalTiempoEnGuarderia, totalAPagar);
+        return null;
     }
 
 

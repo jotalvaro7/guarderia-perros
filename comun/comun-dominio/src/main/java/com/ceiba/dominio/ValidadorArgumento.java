@@ -94,4 +94,12 @@ public class ValidadorArgumento {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }
+
+    public static void validarFecha(String valor,String mensaje) {
+        try {
+            Long.parseLong(valor);
+        } catch (NumberFormatException numberFormatException) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
 }
