@@ -44,7 +44,7 @@ class ServicioCobrarTiempoMascotaTest {
         //act
         FacturaMascota facturaMascota = servicioCobrarTiempoMascota.ejecutar(1L);
         //assert
-        assertEquals(138000, (long) facturaMascota.getPrecioAPagar());
+        assertEquals(186000, (long) facturaMascota.getPrecioAPagar());
         assertEquals(1L, facturaMascota.getIdMascota());
         assertEquals("Can", facturaMascota.getNombreMascota());
         assertNotEquals("", facturaMascota.getTotalTiempoEnGuarderia());
