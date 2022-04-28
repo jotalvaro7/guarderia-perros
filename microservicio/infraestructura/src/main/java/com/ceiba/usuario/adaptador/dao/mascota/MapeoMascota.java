@@ -17,10 +17,9 @@ public class MapeoMascota implements RowMapper<DtoMascota>, MapperResult {
         String nombre = resultSet.getString("nombre");
         String raza = resultSet.getString("raza");
         String peso = resultSet.getString("peso");
-        LocalDateTime fechaIngreso = extraerLocalDateTime(resultSet,"fechaIngreso");
         Long idUsuario = resultSet.getLong("idUsuario");
 
-        return new DtoMascota(id,nombre,raza,peso,fechaIngreso,idUsuario);
+        return new DtoMascota(id,nombre,raza,peso,idUsuario);
 
     }
 

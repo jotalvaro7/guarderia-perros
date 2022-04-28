@@ -7,8 +7,8 @@ public interface DaoRegistroIngresoMascota {
 
     /**
      * Permite obtener el registro de ingreso de una mascota
-     * @param id
+     * @param idMascota
      * @return
      */
-    DtoRegistroIngresoMascota obtenerRegistroIngresoMascota(Long id);
+    DtoRegistroIngresoMascota obtenerRegistroIngresoMascota(Long idMascota);
 }

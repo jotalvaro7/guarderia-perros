@@ -13,7 +13,6 @@ public class DtoMascota {
     private String nombre;
     private String raza;
     private String peso;
-    private LocalDateTime fechaIngreso;
     private Long idUsuario;
 
 }

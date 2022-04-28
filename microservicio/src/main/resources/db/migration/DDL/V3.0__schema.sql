@@ -7,3 +7,5 @@ create table registro_mascota (
 );
 
 insert into registro_mascota (idMascota, fechaIngreso) values (1, now());
+insert into registro_mascota (idMascota, fechaIngreso) values (2, now());
+insert into registro_mascota (idMascota, fechaIngreso) values (3, now());

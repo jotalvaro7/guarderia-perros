@@ -26,29 +26,29 @@ public class ServicioCobrarTiempoMascota {
     }
 
     public FacturaMascota ejecutar(Long idMascota) {
-        DtoMascota mascota = obtenerMascota(idMascota);
-        LocalDateTime fechaIngreso = mascota.getFechaIngreso();
-        LocalDateTime fechaSalida = LocalDateTime.now();
-
-        Long semanas = calcularSemanas(fechaIngreso, fechaSalida);
-        Long dias =  calcularDias(fechaIngreso, fechaSalida) - semanas * SIETE_DIAS_DE_LA_SEMANA ;
-        int horas = calcularHoras(fechaIngreso, fechaSalida);
-        int minutos = calcularMinutos(fechaIngreso, fechaSalida);
-        int totalDiasFinDeSemana = validarFinDeSemanaEntreFechas(fechaIngreso, fechaSalida);
-
-        String totalTiempoEnGuarderia = String.format(
-                "Su mascota ha estado en nuestra guarderia por: " +
-                        "%s semana(s), %s dia(s), %s hora(s), %s minuto(s)",
-                        semanas,dias,horas,minutos
-        );
-
-        Long totalValorSemanas = semanas * VALOR_FIJO_X_SEMANA;
-        Long totalValorDias =  calcularDescuentoDias(dias);
-        int totalValorHoras = calcularDescuentoHoras(horas);
-        int totalMinima = calcularMinima(minutos);
-        int totalHorasFinDeSemana = totalDiasFinDeSemana * 24;
-        int totalValorHorasFinDeSemana = totalHorasFinDeSemana * VALOR_PESOS_POR_HORA;
-        Long totalAPagar = totalValorSemanas + totalValorDias + totalValorHoras + totalMinima + totalValorHorasFinDeSemana;
+//        DtoMascota mascota = obtenerMascota(idMascota);
+//        LocalDateTime fechaIngreso = mascota.getFechaIngreso();
+//        LocalDateTime fechaSalida = LocalDateTime.now();
+//
+//        Long semanas = calcularSemanas(fechaIngreso, fechaSalida);
+//        Long dias =  calcularDias(fechaIngreso, fechaSalida) - semanas * SIETE_DIAS_DE_LA_SEMANA ;
+//        int horas = calcularHoras(fechaIngreso, fechaSalida);
+//        int minutos = calcularMinutos(fechaIngreso, fechaSalida);
+//        int totalDiasFinDeSemana = validarFinDeSemanaEntreFechas(fechaIngreso, fechaSalida);
+//
+//        String totalTiempoEnGuarderia = String.format(
+//                "Su mascota ha estado en nuestra guarderia por: " +
+//                        "%s semana(s), %s dia(s), %s hora(s), %s minuto(s)",
+//                        semanas,dias,horas,minutos
+//        );
+//
+//        Long totalValorSemanas = semanas * VALOR_FIJO_X_SEMANA;
+//        Long totalValorDias =  calcularDescuentoDias(dias);
+//        int totalValorHoras = calcularDescuentoHoras(horas);
+//        int totalMinima = calcularMinima(minutos);
+//        int totalHorasFinDeSemana = totalDiasFinDeSemana * 24;
+//        int totalValorHorasFinDeSemana = totalHorasFinDeSemana * VALOR_PESOS_POR_HORA;
+//        Long totalAPagar = totalValorSemanas + totalValorDias + totalValorHoras + totalMinima + totalValorHorasFinDeSemana;
 
         //return new FacturaMascota(idMascota, mascota.getNombre(), totalTiempoEnGuarderia, totalAPagar);
         return null;
