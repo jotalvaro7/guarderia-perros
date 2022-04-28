@@ -11,4 +11,3 @@ create table mascota (
 insert into mascota (nombre, raza, peso, idUsuario) values ('Max', 'Pastor Aleman', '10Kg', 1);
 insert into mascota (nombre, raza, peso, idUsuario) values ('Kaiser', 'Doberman', '13Kg', 1);
 insert into mascota (nombre, raza, peso, idUsuario) values ('Lucas', 'Pitbull', '11Kg', 2);
-insert into mascota (nombre, raza, peso, idUsuario) values ('Perseus', 'Pastor Belga', '20Kg', 2);
