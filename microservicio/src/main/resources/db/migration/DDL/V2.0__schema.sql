@@ -4,7 +4,6 @@ create table mascota (
  nombre varchar(100) not null,
  raza varchar(100) not null,
  peso varchar(100) not null,
- fechaIngreso datetime null,
  idUsuario int not null,
     foreign key (idUsuario) references usuario(id)
 );

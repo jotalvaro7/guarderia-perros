@@ -1,1 +1,1 @@
-insert into mascota (nombre,raza,peso,fechaIngreso,idUsuario) values (:nombre, :raza, :peso, :fechaIngreso, :idUsuario)
+insert into mascota (nombre,raza,peso,idUsuario) values (:nombre, :raza, :peso, :idUsuario)
