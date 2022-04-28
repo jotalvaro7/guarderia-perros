@@ -11,4 +11,10 @@ public interface RepositorioRegistroIngresoMascota {
      * @return el id generado
      */
     Long crear(RegistroIngresoMascota registroIngresoMascota);
+
+    /**
+     * Permite eliminar un registro de mascota
+     * @param idMascota
+     */
+    void eliminar(Long idMascota);
 }

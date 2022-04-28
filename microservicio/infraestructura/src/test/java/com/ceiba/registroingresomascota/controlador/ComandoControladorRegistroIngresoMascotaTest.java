@@ -16,6 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -43,5 +44,15 @@ class ComandoControladorRegistroIngresoMascotaTest {
                 .content(objectMapper.writeValueAsString(registroIngresoMascota)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 4}"));
+    }
+
+    @Test
+    void deberiaEliminarRegistroIngresoMascota() throws Exception {
+        Long id = 1L;
+
+        mockMvc.perform(delete("/registro/ingreso/{id}", id)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
     }
 }
