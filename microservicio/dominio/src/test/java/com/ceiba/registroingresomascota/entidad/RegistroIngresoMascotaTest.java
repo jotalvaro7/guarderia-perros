@@ -7,6 +7,8 @@ import com.ceiba.usuario.modelo.entidad.RegistroIngresoMascota;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RegistroIngresoMascotaTest {
@@ -29,6 +31,14 @@ class RegistroIngresoMascotaTest {
 
     BasePrueba.assertThrows(registroIngresoMascotaTestDataBuilder::build,
             ExcepcionValorObligatorio.class, "Se debe ingresar el Id de la mascota");
+    }
+
+
+    @Test
+    @DisplayName("Deberia crear fecha de ingreso")
+    void deberiaCrearFechaDeIngreso(){
+        RegistroIngresoMascota registroIngresoMascota = new RegistroIngresoMascotaTestDataBuilder().build();
+        assertNotNull(registroIngresoMascota.getFechaIngreso());
     }
 
 }

@@ -13,11 +13,16 @@ public class RegistroIngresoMascotaTestDataBuilder {
     public RegistroIngresoMascotaTestDataBuilder(){
         id = 1L;
         idMascota = 1L;
-        fechaIngreso = LocalDateTime.now();
+        fechaIngreso = LocalDateTime.of(2022, 04, 27, 18, 00,00);;
     }
 
     public RegistroIngresoMascotaTestDataBuilder conIdMascota(Long idMascota){
         this.idMascota = idMascota;
+        return this;
+    }
+
+    public RegistroIngresoMascotaTestDataBuilder conFechaIngreso(LocalDateTime fechaIngreso){
+        this.fechaIngreso = fechaIngreso;
         return this;
     }
 

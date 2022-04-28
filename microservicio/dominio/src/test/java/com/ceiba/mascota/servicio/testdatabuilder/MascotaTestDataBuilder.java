@@ -2,8 +2,6 @@ package com.ceiba.mascota.servicio.testdatabuilder;
 
 import com.ceiba.usuario.modelo.entidad.Mascota;
 
-import java.time.LocalDateTime;
-
 public class MascotaTestDataBuilder {
 
     private Long id;
