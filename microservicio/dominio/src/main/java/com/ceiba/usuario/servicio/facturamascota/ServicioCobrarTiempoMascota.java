@@ -1,4 +1,4 @@
-package com.ceiba.usuario.servicio.mascota;
+package com.ceiba.usuario.servicio.facturamascota;
 
 import com.ceiba.usuario.modelo.dto.DtoMascota;
 import com.ceiba.usuario.modelo.dto.DtoRegistroIngresoMascota;

@@ -4,7 +4,7 @@ import com.ceiba.usuario.puerto.dao.DaoMascota;
 import com.ceiba.usuario.puerto.dao.DaoRegistroIngresoMascota;
 import com.ceiba.usuario.puerto.repositorio.RepositorioMascota;
 import com.ceiba.usuario.servicio.mascota.ServicioActualizarMascota;
-import com.ceiba.usuario.servicio.mascota.ServicioCobrarTiempoMascota;
+import com.ceiba.usuario.servicio.facturamascota.ServicioCobrarTiempoMascota;
 import com.ceiba.usuario.servicio.mascota.ServicioCrearMascota;
 import com.ceiba.usuario.servicio.mascota.ServicioEliminarMascota;
 import org.springframework.context.annotation.Bean;

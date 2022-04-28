@@ -5,7 +5,7 @@ import com.ceiba.usuario.modelo.dto.DtoRegistroIngresoMascota;
 import com.ceiba.usuario.modelo.entidad.FacturaMascota;
 import com.ceiba.usuario.puerto.dao.DaoMascota;
 import com.ceiba.usuario.puerto.dao.DaoRegistroIngresoMascota;
-import com.ceiba.usuario.servicio.mascota.ServicioCobrarTiempoMascota;
+import com.ceiba.usuario.servicio.facturamascota.ServicioCobrarTiempoMascota;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

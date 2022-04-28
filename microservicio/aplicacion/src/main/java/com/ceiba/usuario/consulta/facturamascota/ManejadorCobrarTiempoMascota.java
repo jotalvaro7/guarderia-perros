@@ -1,7 +1,7 @@
-package com.ceiba.usuario.consulta.mascota;
+package com.ceiba.usuario.consulta.facturamascota;
 
 import com.ceiba.usuario.modelo.entidad.FacturaMascota;
-import com.ceiba.usuario.servicio.mascota.ServicioCobrarTiempoMascota;
+import com.ceiba.usuario.servicio.facturamascota.ServicioCobrarTiempoMascota;
 import org.springframework.stereotype.Component;
 
 @Component
