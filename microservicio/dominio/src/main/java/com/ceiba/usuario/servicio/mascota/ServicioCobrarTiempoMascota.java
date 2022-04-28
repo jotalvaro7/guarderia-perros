@@ -84,7 +84,6 @@ public class ServicioCobrarTiempoMascota {
     }
 
     private Long calcularValorAPagarPorDias(LocalDateTime fechaIngresoMascota, LocalDateTime fechaSalidaMascota) {
-        Long semanas = calcularSemanas(fechaIngresoMascota, fechaSalidaMascota);
         Long dias =  calcularDiasDeLaSemana(fechaIngresoMascota, fechaSalidaMascota);
         return calcularDescuentoDias(dias);
     }
