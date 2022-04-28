@@ -18,7 +18,6 @@ public class ServicioCobrarTiempoMascota {
     private static final int PORCENTAJE_DESCUENTO_SILVER = 10;
     private static final int PORCENTAJE_DESCUENTO_PREMIUM = 15;
     private static final int CANTIDAD_HORAS_MINIMA_DESCUENTO_SILVER = 12;
-    private static final int SIETE_DIAS_DE_LA_SEMANA = 7;
     private static final int VEINTICUATRO_HORAS_POR_DIA = 24;
     private static final int CIEN_PORCIENTO = 100;
 
@@ -45,7 +44,7 @@ public class ServicioCobrarTiempoMascota {
 
     private String calcularTiempoEnGuarderia(LocalDateTime fechaIngresoMascota, LocalDateTime fechaSalidaMascota) {
         Long semanas = calcularSemanas(fechaIngresoMascota, fechaSalidaMascota);
-        Long dias =  calcularDias(fechaIngresoMascota, fechaSalidaMascota) - semanas * SIETE_DIAS_DE_LA_SEMANA;
+        Long dias =  calcularDiasDeLaSemana(fechaIngresoMascota, fechaSalidaMascota);
         int horas = calcularHoras(fechaIngresoMascota, fechaSalidaMascota);
         int minutos = calcularMinutos(fechaIngresoMascota, fechaSalidaMascota);
 
@@ -86,7 +85,7 @@ public class ServicioCobrarTiempoMascota {
 
     private Long calcularValorAPagarPorDias(LocalDateTime fechaIngresoMascota, LocalDateTime fechaSalidaMascota) {
         Long semanas = calcularSemanas(fechaIngresoMascota, fechaSalidaMascota);
-        Long dias =  calcularDias(fechaIngresoMascota, fechaSalidaMascota) - semanas * SIETE_DIAS_DE_LA_SEMANA;
+        Long dias =  calcularDiasDeLaSemana(fechaIngresoMascota, fechaSalidaMascota);
         return calcularDescuentoDias(dias);
     }
 

@@ -7,12 +7,20 @@ import java.time.temporal.ChronoUnit;
 
 public class UtilFecha {
 
+    private static final int SIETE_DIAS_DE_LA_SEMANA = 7;
 
     public static Long calcularSemanas(LocalDateTime fechaIngreso, LocalDateTime fechaSalida) {
         return ChronoUnit.WEEKS.between(fechaIngreso, fechaSalida);
     }
 
-    public static Long calcularDias(LocalDateTime fechaIngreso, LocalDateTime fechaSalida) {
+    public static Long calcularDiasDeLaSemana(LocalDateTime fechaIngreso, LocalDateTime fechaSalida) {
+        Duration duration = Duration.between(fechaIngreso, fechaSalida);
+        long dias = duration.toDaysPart();
+        long semanas = calcularSemanas(fechaIngreso, fechaSalida);
+        return dias - semanas * SIETE_DIAS_DE_LA_SEMANA;
+    }
+
+    public static Long calcularDiasNetos(LocalDateTime fechaIngreso, LocalDateTime fechaSalida) {
         Duration duration = Duration.between(fechaIngreso, fechaSalida);
         return duration.toDaysPart();
     }
@@ -29,7 +37,7 @@ public class UtilFecha {
 
     public static Integer validarFinDeSemanaEntreFechas(LocalDateTime fechaInicial, LocalDateTime fechaFinal) {
 
-        Long diferenciaDeDias = calcularDias(fechaInicial , fechaFinal);
+        Long diferenciaDeDias = calcularDiasNetos(fechaInicial , fechaFinal);
 
         int totalDiasFinDeSemana = 0;
         fechaInicial = fechaInicial.plusDays(-1);
