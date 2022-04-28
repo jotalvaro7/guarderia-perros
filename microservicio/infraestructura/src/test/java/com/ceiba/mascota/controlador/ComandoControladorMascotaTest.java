@@ -40,7 +40,7 @@ class ComandoControladorMascotaTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(mascota)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 4}"));
+                .andExpect(content().json("{'valor': 5}"));
     }
 
     @Test
@@ -59,7 +59,7 @@ class ComandoControladorMascotaTest {
     @Test
     @DisplayName("Deberia eliminar una mascota")
     void deberiaEliminarUnaMascota() throws Exception {
-        Long id = 1L;
+        Long id = 4L;
 
         mockMvc.perform(delete("/mascotas/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON)

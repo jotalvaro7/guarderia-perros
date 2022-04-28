@@ -115,7 +115,7 @@ public class ServicioCobrarTiempoMascota {
     private int calcularDescuentoHoras(int horas){
         int totalValorHoras = 0;
         int dividendo = horas * VALOR_PESOS_POR_HORA;
-        if(horas > CANTIDAD_HORAS_MINIMA_DESCUENTO_SILVER){
+        if(horas >= CANTIDAD_HORAS_MINIMA_DESCUENTO_SILVER){
             totalValorHoras = (dividendo) - (((dividendo) * PORCENTAJE_DESCUENTO_SILVER) / CIEN_PORCIENTO);
         }else{
             totalValorHoras = horas * VALOR_PESOS_POR_HORA;
@@ -125,7 +125,7 @@ public class ServicioCobrarTiempoMascota {
 
     private int calcularMinima(int minutos) {
         int totalValorMinima = 0;
-        if(minutos > TIEMPO_MINUTOS_MINIMA){
+        if(minutos >= TIEMPO_MINUTOS_MINIMA){
             totalValorMinima = VALOR_PESOS_POR_HORA;
         }
         return totalValorMinima;
