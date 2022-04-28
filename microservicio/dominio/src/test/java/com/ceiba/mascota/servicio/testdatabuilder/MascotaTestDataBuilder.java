@@ -10,7 +10,6 @@ public class MascotaTestDataBuilder {
     private String nombre;
     private String raza;
     private String peso;
-    private LocalDateTime fechaIngreso;
     private Long idUsuario;
 
     public MascotaTestDataBuilder(){
@@ -18,17 +17,11 @@ public class MascotaTestDataBuilder {
         nombre = "Zeus";
         raza = "Doberman";
         peso = "20Kg";
-        fechaIngreso = LocalDateTime.now();
         idUsuario = 2L;
     }
 
     public MascotaTestDataBuilder conIdUsuario(Long idUsuario){
         this.idUsuario = idUsuario;
-        return this;
-    }
-
-    public MascotaTestDataBuilder conFechaIngreso(LocalDateTime fechaIngreso){
-        this.fechaIngreso = fechaIngreso;
         return this;
     }
 

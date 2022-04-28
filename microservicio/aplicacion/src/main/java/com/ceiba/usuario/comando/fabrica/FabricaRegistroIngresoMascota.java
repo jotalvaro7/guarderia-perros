@@ -9,6 +9,7 @@ public class FabricaRegistroIngresoMascota {
 
     public RegistroIngresoMascota crear(ComandoRegistroIngresoMascota comandoRegistroIngresoMascota){
         return new RegistroIngresoMascota(
+                comandoRegistroIngresoMascota.getId(),
                 comandoRegistroIngresoMascota.getIdMascota()
         );
 

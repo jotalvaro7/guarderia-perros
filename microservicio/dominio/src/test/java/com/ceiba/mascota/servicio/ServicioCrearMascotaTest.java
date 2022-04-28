@@ -10,7 +10,7 @@ import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ServicioCrearMascotaTest {
+class ServicioCrearMascotaTest {
 
     @Test
     @DisplayName("Deberia crear la mascota de manera correcta")
