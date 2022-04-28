@@ -19,7 +19,7 @@ class ServicioCobrarTiempoMascotaTest {
     void deberiaCalcularElPrecioDeLaFacturaSinAplicarDescuentos(){
         //arrange
         LocalDateTime fechaIngreso = LocalDateTime.now().plusHours(-5);
-        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", fechaIngreso, 1L);
+        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", 1L);
         DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
         Mockito.when(daoMascota.obtenerMascota(Mockito.anyLong())).thenReturn(mascota);
         ServicioCobrarTiempoMascota servicioCobrarTiempoMascota = new ServicioCobrarTiempoMascota(daoMascota);
@@ -36,7 +36,7 @@ class ServicioCobrarTiempoMascotaTest {
     void deberiaCalcularPrecioAPagarConPrecioFijoSiSemanaEs1() {
         //arrange
         LocalDateTime fechaIngreso = LocalDateTime.now().plusWeeks(-1);
-        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", fechaIngreso, 1L);
+        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", 1L);
         DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
         Mockito.when(daoMascota.obtenerMascota(Mockito.anyLong())).thenReturn(mascota);
         ServicioCobrarTiempoMascota servicioCobrarTiempoMascota = new ServicioCobrarTiempoMascota(daoMascota);
@@ -53,7 +53,7 @@ class ServicioCobrarTiempoMascotaTest {
     void deberiaCalcularPrecioAPagarConDescuentoPremiumSiDiaEsUno() {
         //arrange
         LocalDateTime fechaIngreso = LocalDateTime.now().plusDays(-1);
-        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", fechaIngreso, 1L);
+        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", 1L);
         DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
         Mockito.when(daoMascota.obtenerMascota(Mockito.anyLong())).thenReturn(mascota);
         ServicioCobrarTiempoMascota servicioCobrarTiempoMascota = new ServicioCobrarTiempoMascota(daoMascota);
@@ -70,7 +70,7 @@ class ServicioCobrarTiempoMascotaTest {
     void deberiaCalcularPrecioAPagarConDescuentoSilverSiHorasMayorADoce() {
         //arrange
         LocalDateTime fechaIngreso = LocalDateTime.now().plusHours(-13);
-        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", fechaIngreso, 1L);
+        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", 1L);
         DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
         Mockito.when(daoMascota.obtenerMascota(Mockito.anyLong())).thenReturn(mascota);
         ServicioCobrarTiempoMascota servicioCobrarTiempoMascota = new ServicioCobrarTiempoMascota(daoMascota);
@@ -87,7 +87,7 @@ class ServicioCobrarTiempoMascotaTest {
     void deberiaCalcularPrecioAPagarSiMinutosMayorALaMinima() {
         //arrange
         LocalDateTime fechaIngreso = LocalDateTime.now().plusMinutes(-30);
-        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", fechaIngreso, 1L);
+        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", 1L);
         DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
         Mockito.when(daoMascota.obtenerMascota(Mockito.anyLong())).thenReturn(mascota);
         ServicioCobrarTiempoMascota servicioCobrarTiempoMascota = new ServicioCobrarTiempoMascota(daoMascota);
@@ -104,7 +104,7 @@ class ServicioCobrarTiempoMascotaTest {
     void deberiaSerCeroYaQueNoSuperaLaTarifaMinima() {
         //arrange
         LocalDateTime fechaIngreso = LocalDateTime.now().plusMinutes(-10);
-        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", fechaIngreso, 1L);
+        DtoMascota mascota = new DtoMascota(1L, "Can", "Pastor Aleman", "20Kg", 1L);
         DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
         Mockito.when(daoMascota.obtenerMascota(Mockito.anyLong())).thenReturn(mascota);
         ServicioCobrarTiempoMascota servicioCobrarTiempoMascota = new ServicioCobrarTiempoMascota(daoMascota);

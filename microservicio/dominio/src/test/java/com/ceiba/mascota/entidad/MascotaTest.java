@@ -114,4 +114,15 @@ public class MascotaTest {
                 "Se debe ingresar el peso de la mascota");
     }
 
+    @Test
+    @DisplayName("Deberia lanzar una excepcion cuando el idUsuario de la mascota es null")
+    void deberiaLanzarUnaExepcionCuandoElIdUsuarioDeLaMascotaEsNull() {
+        // arrange
+        MascotaTestDataBuilder mascotaTestDataBuilder = new MascotaTestDataBuilder().conIdUsuario(null);
+        // act - assert
+        BasePrueba.assertThrows(mascotaTestDataBuilder::build,
+                ExcepcionValorObligatorio.class,
+                "Se debe ingresar el id del usuario");
+    }
+
 }
