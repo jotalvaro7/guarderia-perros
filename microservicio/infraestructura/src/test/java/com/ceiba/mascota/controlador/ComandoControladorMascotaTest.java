@@ -40,7 +40,7 @@ class ComandoControladorMascotaTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(mascota)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 5}"));
+                .andExpect(content().json("{'valor': 4}"));
     }
 
     @Test
