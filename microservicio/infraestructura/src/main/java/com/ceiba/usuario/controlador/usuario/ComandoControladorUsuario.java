@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/usuarios")
 @Api(tags = { "Controlador comando usuario"})

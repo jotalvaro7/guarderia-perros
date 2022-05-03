@@ -5,7 +5,7 @@ import com.ceiba.usuario.modelo.entidad.FacturaMascota;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/cobrar")
 @Api(tags = {"Controlador Cobrar"})
