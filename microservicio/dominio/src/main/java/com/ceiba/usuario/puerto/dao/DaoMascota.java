@@ -1,6 +1,7 @@
 package com.ceiba.usuario.puerto.dao;
 
 import com.ceiba.usuario.modelo.dto.DtoMascota;
+import com.ceiba.usuario.modelo.dto.DtoMascotaNombreFecha;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface DaoMascota {
      * @return
      */
     DtoMascota obtenerMascota(Long id);
+
+    DtoMascotaNombreFecha obtenerNombreFechaIngresoMascota(Long id);
 }

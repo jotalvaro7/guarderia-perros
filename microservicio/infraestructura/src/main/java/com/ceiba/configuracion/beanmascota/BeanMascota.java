@@ -1,5 +1,6 @@
 package com.ceiba.configuracion.beanmascota;
 
+import com.ceiba.usuario.modelo.entidad.FacturaMascota;
 import com.ceiba.usuario.puerto.dao.DaoMascota;
 import com.ceiba.usuario.puerto.dao.DaoRegistroIngresoMascota;
 import com.ceiba.usuario.puerto.repositorio.RepositorioMascota;
@@ -28,7 +29,7 @@ public class BeanMascota {
     }
 
     @Bean
-    public ServicioCobrarTiempoMascota servicioCobrarTiempoMascota(DaoMascota daoMascota, DaoRegistroIngresoMascota daoRegistroIngresoMascota){
-        return new ServicioCobrarTiempoMascota(daoMascota, daoRegistroIngresoMascota);
+    public ServicioCobrarTiempoMascota servicioCobrarTiempoMascota(){
+        return new ServicioCobrarTiempoMascota();
     }
 }

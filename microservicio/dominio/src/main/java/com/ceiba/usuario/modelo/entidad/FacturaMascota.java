@@ -1,12 +1,14 @@
 package com.ceiba.usuario.modelo.entidad;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
+@Setter
 public class FacturaMascota {
 
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_MASCOTA = "Se debe ingresar el nombre de la mascota";
@@ -21,13 +23,12 @@ public class FacturaMascota {
     private String totalTiempoEnGuarderia;
     private Long precioAPagar;
 
-    public FacturaMascota(String nombreMascota, LocalDateTime fechaIngreso,
-                          LocalDateTime fechaSalida, String totalTiempoEnGuarderia, Long precioAPagar) {
+    public FacturaMascota(String nombreMascota, LocalDateTime fechaIngreso, LocalDateTime fechaSalida,
+                          String totalTiempoEnGuarderia, Long precioAPagar) {
 
         validarObligatorio(nombreMascota, SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_MASCOTA);
         validarObligatorio(fechaIngreso, SE_DEBE_INGRESAR_LA_FECHA_DE_INGRESO);
         validarObligatorio(fechaSalida, SE_DEBE_INGRESAR_EL_FECHA_DE_SALIDA);
-        validarObligatorio(totalTiempoEnGuarderia, SE_DEBE_INGRESAR_EL_TOTAL_DE_TIEMPO_DE_GUARDERIA);
         validarObligatorio(precioAPagar, SE_DEBE_INGRESAR_EL_PRECIO_A_PAGAR);
 
         this.nombreMascota = nombreMascota;

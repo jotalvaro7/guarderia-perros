@@ -7,9 +7,9 @@ import com.ceiba.usuario.comando.manejador.registroingresomascota.ManejadorElimi
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
-@CrossOrigin("http://localhost:4200")
+
 @RestController
-@RequestMapping("/registro/ingreso")
+@RequestMapping("api/registro/ingreso")
 @Api(tags = {"Controlador Comando Registro Ingreso Mascota"})
 public class ComandoControladorRegistroIngresoMascota {
 

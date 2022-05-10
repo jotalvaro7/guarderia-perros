@@ -2,7 +2,9 @@ package com.ceiba.usuario.adaptador.dao.mascota;
 
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
+import com.ceiba.usuario.adaptador.dao.registroingresomascota.MapeoRegistroIngresoMascota;
 import com.ceiba.usuario.modelo.dto.DtoMascota;
+import com.ceiba.usuario.modelo.dto.DtoMascotaNombreFecha;
 import com.ceiba.usuario.puerto.dao.DaoMascota;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
@@ -16,6 +18,9 @@ public class DaoMascotaMysql implements DaoMascota {
     private static String sqlListarMascotasDeUsuario;
     @SqlStatement(namespace = "usuario", value = "listarMascotaPorId")
     private static String sqlListarMascotaPorId;
+
+    @SqlStatement(namespace = "usuario", value = "obtenerNombreFechaIngreso")
+    private static String sqlListarNombreFechaIngresoMascotaPorId;
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
@@ -40,5 +45,16 @@ public class DaoMascotaMysql implements DaoMascota {
                 .getNamedParameterJdbcTemplate()
                 .queryForObject(sqlListarMascotaPorId, paramSource, new MapeoMascota());
     }
+
+    @Override
+    public DtoMascotaNombreFecha obtenerNombreFechaIngresoMascota(Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+
+        return this.customNamedParameterJdbcTemplate
+                .getNamedParameterJdbcTemplate()
+                .queryForObject(sqlListarNombreFechaIngresoMascotaPorId, paramSource, new MapeoNombreFechaMascota());
+    }
+
 
 }

@@ -11,9 +11,8 @@ import com.ceiba.usuario.modelo.dto.DtoUsuario;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@CrossOrigin("http://localhost:4200")
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("api/usuarios")
 @Api(tags={"Controlador consulta usuario"})
 public class ConsultaControladorUsuario {
 

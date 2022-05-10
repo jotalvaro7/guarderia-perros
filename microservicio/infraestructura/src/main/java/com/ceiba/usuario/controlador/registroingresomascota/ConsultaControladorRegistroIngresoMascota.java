@@ -6,9 +6,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("http://localhost:4200")
 @RestController
-@RequestMapping("registro/ingreso")
+@RequestMapping("api/registro/ingreso")
 @Api(tags = {"Controlador Consulta Registro Ingreso Mascota"})
 public class ConsultaControladorRegistroIngresoMascota {
 
