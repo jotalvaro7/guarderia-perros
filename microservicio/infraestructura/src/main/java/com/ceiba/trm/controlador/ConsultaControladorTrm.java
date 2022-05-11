@@ -15,9 +15,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
 
-@CrossOrigin("http://localhost:4200")
 @RestController
-@RequestMapping("/trm")
+@RequestMapping("api/trm")
 public class ConsultaControladorTrm {
 
     @GetMapping

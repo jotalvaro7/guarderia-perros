@@ -39,7 +39,7 @@ class ComandoControladorRegistroIngresoMascotaTest {
 
         ComandoRegistroIngresoMascota registroIngresoMascota = new ComandoRegistroIngresoMascotaTestDataBuilder().build();
 
-        mockMvc.perform(post("/registro/ingreso")
+        mockMvc.perform(post("/api/registro/ingreso")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(registroIngresoMascota)))
                 .andExpect(status().isOk())
@@ -50,7 +50,7 @@ class ComandoControladorRegistroIngresoMascotaTest {
     void deberiaEliminarRegistroIngresoMascota() throws Exception {
         Long id = 1L;
 
-        mockMvc.perform(delete("/registro/ingreso/{id}", id)
+        mockMvc.perform(delete("/api/registro/ingreso/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

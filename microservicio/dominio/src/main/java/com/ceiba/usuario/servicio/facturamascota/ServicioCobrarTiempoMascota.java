@@ -21,17 +21,17 @@ public class ServicioCobrarTiempoMascota {
 
     public FacturaMascota ejecutar(FacturaMascota facturaMascota) {
 
-        facturaMascota.setTotalTiempoEnGuarderia(calcularTiempoEnGuarderia(facturaMascota.getFechaIngreso()));
-        facturaMascota.setPrecioAPagar(calcularValorAPagarPorTiempoEstadidaMascota(facturaMascota.getFechaIngreso()));
+        facturaMascota.setTotalTiempoEnGuarderia(calcularTiempoEnGuarderia(facturaMascota.getFechaIngreso(), facturaMascota.getFechaSalida()));
+        facturaMascota.setPrecioAPagar(calcularValorAPagarPorTiempoEstadidaMascota(facturaMascota.getFechaIngreso(), facturaMascota.getFechaSalida()));
 
         return facturaMascota;
     }
 
-    private String calcularTiempoEnGuarderia(LocalDateTime fechaIngresoMascota) {
-        Long semanas = calcularSemanas(fechaIngresoMascota);
-        Long dias =  calcularDiasDeLaSemana(fechaIngresoMascota);
-        int horas = calcularHoras(fechaIngresoMascota);
-        int minutos = calcularMinutos(fechaIngresoMascota);
+    private String calcularTiempoEnGuarderia(LocalDateTime fechaIngresoMascota, LocalDateTime fechaSalidaMascota) {
+        Long semanas = calcularSemanas(fechaIngresoMascota, fechaSalidaMascota);
+        Long dias =  calcularDiasDeLaSemana(fechaIngresoMascota, fechaSalidaMascota);
+        int horas = calcularHoras(fechaIngresoMascota, fechaSalidaMascota);
+        int minutos = calcularMinutos(fechaIngresoMascota, fechaSalidaMascota);
 
         return String.format(
                 "Su mascota ha estado en nuestra guarderia por: " +
@@ -40,41 +40,41 @@ public class ServicioCobrarTiempoMascota {
         );
     }
 
-    private Long calcularValorAPagarPorTiempoEstadidaMascota(LocalDateTime fechaIngresoMascota) {
+    private Long calcularValorAPagarPorTiempoEstadidaMascota(LocalDateTime fechaIngresoMascota, LocalDateTime fechaSalidaMascota) {
 
-        Long totalValorAPagarPorSemanas = calcularValorAPagarPorSemanas(fechaIngresoMascota);
-        Long totalValorAPagarPorDias = calcularValorAPagarPorDias(fechaIngresoMascota);
-        int totalValorAPagarPorHoras = calcularValorAPagarPorHoras(fechaIngresoMascota);
-        int totalValorAPagarPorMinutos = calcularValorAPagarPorMinutos(fechaIngresoMascota);
-        int totalValorAPagarPorFinDeSemana = calcularValorAPagarPorFinDeSemana(fechaIngresoMascota);
+        Long totalValorAPagarPorSemanas = calcularValorAPagarPorSemanas(fechaIngresoMascota, fechaSalidaMascota);
+        Long totalValorAPagarPorDias = calcularValorAPagarPorDias(fechaIngresoMascota, fechaSalidaMascota);
+        int totalValorAPagarPorHoras = calcularValorAPagarPorHoras(fechaIngresoMascota, fechaSalidaMascota);
+        int totalValorAPagarPorMinutos = calcularValorAPagarPorMinutos(fechaIngresoMascota, fechaSalidaMascota);
+        int totalValorAPagarPorFinDeSemana = calcularValorAPagarPorFinDeSemana(fechaIngresoMascota, fechaSalidaMascota);
 
         return totalValorAPagarPorSemanas + totalValorAPagarPorDias + totalValorAPagarPorHoras +
                 totalValorAPagarPorMinutos + totalValorAPagarPorFinDeSemana;
     }
 
 
-    private Long calcularValorAPagarPorSemanas(LocalDateTime fechaIngresoMascota) {
-        Long semanas = calcularSemanas(fechaIngresoMascota);
+    private Long calcularValorAPagarPorSemanas(LocalDateTime fechaIngresoMascota, LocalDateTime fechaSalidaMascota) {
+        Long semanas = calcularSemanas(fechaIngresoMascota, fechaSalidaMascota);
         return semanas * VALOR_FIJO_X_SEMANA;
     }
 
-    private Long calcularValorAPagarPorDias(LocalDateTime fechaIngresoMascota) {
-        Long dias =  calcularDiasDeLaSemana(fechaIngresoMascota);
+    private Long calcularValorAPagarPorDias(LocalDateTime fechaIngresoMascota, LocalDateTime fechaSalidaMascota) {
+        Long dias =  calcularDiasDeLaSemana(fechaIngresoMascota, fechaSalidaMascota);
         return calcularDescuentoDias(dias);
     }
 
-    private int calcularValorAPagarPorHoras(LocalDateTime fechaIngresoMascota) {
-        int horas = calcularHoras(fechaIngresoMascota);
+    private int calcularValorAPagarPorHoras(LocalDateTime fechaIngresoMascota, LocalDateTime fechaSalidaMascota) {
+        int horas = calcularHoras(fechaIngresoMascota, fechaSalidaMascota);
         return calcularDescuentoHoras(horas);
     }
 
-    private int calcularValorAPagarPorMinutos(LocalDateTime fechaIngresoMascota) {
-        int minutos = calcularMinutos(fechaIngresoMascota);
+    private int calcularValorAPagarPorMinutos(LocalDateTime fechaIngresoMascota, LocalDateTime fechaSalidaMascota) {
+        int minutos = calcularMinutos(fechaIngresoMascota, fechaSalidaMascota);
         return calcularMinima(minutos);
     }
 
-    private int calcularValorAPagarPorFinDeSemana(LocalDateTime fechaIngresoMascota) {
-        int totalDiasFinDeSemana = validarFinDeSemanaEntreFechas(fechaIngresoMascota);
+    private int calcularValorAPagarPorFinDeSemana(LocalDateTime fechaIngresoMascota, LocalDateTime fechaSalidaMascota) {
+        int totalDiasFinDeSemana = validarFinDeSemanaEntreFechas(fechaIngresoMascota, fechaSalidaMascota);
         int totalHorasFinDeSemana = totalDiasFinDeSemana * VEINTICUATRO_HORAS_POR_DIA;
         return totalHorasFinDeSemana * VALOR_PESOS_POR_HORA;
     }

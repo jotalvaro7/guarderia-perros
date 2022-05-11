@@ -76,28 +76,6 @@ class FacturaMascotaTest {
                 "Se debe ingresar la fecha de salida de la mascota");
     }
 
-    @Test
-    @DisplayName("Deberia Lanzar Una Excepcion Cuando El Tiempo En Guarderia De La Mascota Es Vacio")
-    void deberiaLanzarUnaExcepcionCuandoElTiempoEnGuarderiaEsVacio() {
-
-        FacturaMascotaTestDataBuilder facturaMascotaTestDataBuilder = new FacturaMascotaTestDataBuilder().conTotalTiempoEnGuarderia("");
-
-        BasePrueba.assertThrows(facturaMascotaTestDataBuilder::build,
-                ExcepcionValorObligatorio.class,
-                "Se debe ingresar el tiempo total en la guarderia");
-    }
-
-    @Test
-    @DisplayName("Deberia Lanzar Una Excepcion  Cuando El Tiempo En Guarderia De La Mascota Es Null")
-    void deberiaLanzarUnaExcepcionCuandoElTiempoEnGuarderiaEsNull() {
-
-        FacturaMascotaTestDataBuilder facturaMascotaTestDataBuilder = new FacturaMascotaTestDataBuilder().conTotalTiempoEnGuarderia(null);
-
-        BasePrueba.assertThrows(facturaMascotaTestDataBuilder::build,
-                ExcepcionValorObligatorio.class,
-                "Se debe ingresar el tiempo total en la guarderia");
-    }
-
 
     @Test
     @DisplayName("Deberia Lanzar Una Excepcion  Cuando El Precio A Pagar De La Mascota Es Null")

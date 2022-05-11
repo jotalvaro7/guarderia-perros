@@ -14,7 +14,6 @@ public class FacturaMascota {
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_MASCOTA = "Se debe ingresar el nombre de la mascota";
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_INGRESO = "Se debe ingresar la fecha de ingreso de la mascota";
     private static final String SE_DEBE_INGRESAR_EL_FECHA_DE_SALIDA = "Se debe ingresar la fecha de salida de la mascota";
-    private static final String SE_DEBE_INGRESAR_EL_TOTAL_DE_TIEMPO_DE_GUARDERIA = "Se debe ingresar el tiempo total en la guarderia";
     private static final String SE_DEBE_INGRESAR_EL_PRECIO_A_PAGAR = "Se debe ingresar el precio a pagar";
 
     private String nombreMascota;

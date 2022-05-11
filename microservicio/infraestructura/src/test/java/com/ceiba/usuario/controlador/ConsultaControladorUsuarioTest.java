@@ -33,7 +33,7 @@ class ConsultaControladorUsuarioTest {
     void deberiaListarUsuarios() throws Exception {
         // arrange
         // act - assert
-        mocMvc.perform(get("/usuarios")
+        mocMvc.perform(get("/api/usuarios")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(3)))
@@ -47,7 +47,7 @@ class ConsultaControladorUsuarioTest {
     @DisplayName("Deberia obtener un usuario")
     void deberiaObtenerUsuario() throws Exception {
 
-        mocMvc.perform(get("/usuarios/2")
+        mocMvc.perform(get("/api/usuarios/2")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.nombre", is("Martin")))

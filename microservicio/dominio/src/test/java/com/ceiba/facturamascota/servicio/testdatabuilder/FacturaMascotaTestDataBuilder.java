@@ -35,11 +35,6 @@ public class FacturaMascotaTestDataBuilder {
         return this;
     }
 
-    public FacturaMascotaTestDataBuilder conTotalTiempoEnGuarderia(String totalTiempoEnGuarderia){
-        this.totalTiempoEnGuarderia = totalTiempoEnGuarderia;
-        return this;
-    }
-
     public FacturaMascotaTestDataBuilder conPrecioAPagar(Long precioAPagar){
         this.precioAPagar = precioAPagar;
         return this;
