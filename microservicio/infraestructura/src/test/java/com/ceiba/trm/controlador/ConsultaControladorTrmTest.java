@@ -1,4 +1,4 @@
-package com.ceiba.factura.controlador;
+package com.ceiba.trm.controlador;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.usuario.controlador.mascota.ConsultaControladorMascota;
@@ -14,26 +14,30 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.core.Is.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(ConsultaControladorMascota.class)
 @ContextConfiguration(classes = ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class ConsultaControladorCobrarTiempoMascotaTest {
+class ConsultaControladorTrmTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("Deberia Obtener La Factura De Cobro De La Mascota")
-    void deberiaObtenerLaFacturDeCobroDeLaMascota() throws Exception {
-        Long id = 1L;
+    @DisplayName("Deberia Obtener El Valor Del TRM Del Dia Actual")
+    void deberiaObtenerElValorDelTrmDelDiaActual() throws Exception {
 
-        mockMvc.perform((get("/api/cobrar/{id}", id))
+        mockMvc.perform(get("/api/trm")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.nombreMascota", is("Max")));
+                .andExpect(jsonPath("$.unit", is("COP")))
+                .andExpect(jsonPath("$.success", is("true")));
+
+
     }
+
 }

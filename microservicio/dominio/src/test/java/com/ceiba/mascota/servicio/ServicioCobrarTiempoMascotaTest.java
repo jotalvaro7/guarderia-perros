@@ -1,16 +1,11 @@
 package com.ceiba.mascota.servicio;
 
-import com.ceiba.usuario.modelo.dto.DtoMascota;
-import com.ceiba.usuario.modelo.dto.DtoMascotaNombreFecha;
-import com.ceiba.usuario.modelo.dto.DtoRegistroIngresoMascota;
 import com.ceiba.usuario.modelo.entidad.FacturaMascota;
-import com.ceiba.usuario.puerto.dao.DaoMascota;
-import com.ceiba.usuario.puerto.dao.DaoRegistroIngresoMascota;
+
 import com.ceiba.usuario.servicio.facturamascota.ServicioCobrarTiempoMascota;
-import net.bytebuddy.asm.Advice;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.*;
+
 
 import java.time.LocalDateTime;
 
@@ -21,7 +16,7 @@ class ServicioCobrarTiempoMascotaTest {
     @Test
     @DisplayName("Deberia calcular el precio de la factura sin descuentos mayor a la minima y menor al descuento silver")
     void deberiaCalcularElPrecioDeLaFacturaSinAplicarDescuentos() {
-//        //arrange
+        //arrange
         LocalDateTime fechaIngreso = LocalDateTime.now().plusHours(-5);
         FacturaMascota facturaMascota = new FacturaMascota("Kaiser", fechaIngreso, LocalDateTime.now(), "", 0L);
         ServicioCobrarTiempoMascota servicioCobrarTiempoMascota = new ServicioCobrarTiempoMascota();

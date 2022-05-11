@@ -2,7 +2,6 @@ package com.ceiba.mascota.servicio.testdatabuilder;
 
 import com.ceiba.usuario.comando.ComandoMascota;
 
-import java.time.LocalDateTime;
 
 public class ComandoMascotaTestDataBuilder {
 
