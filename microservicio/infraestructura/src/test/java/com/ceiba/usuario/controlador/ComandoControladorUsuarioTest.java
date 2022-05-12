@@ -38,7 +38,7 @@ class ComandoControladorUsuarioTest {
         // arrange
         ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
         // act - assert
-        mocMvc.perform(post("/api/usuarios")
+        mocMvc.perform(post("/usuarios")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(usuario)))
                 .andExpect(status().isOk())
@@ -52,7 +52,7 @@ class ComandoControladorUsuarioTest {
         Long id = 1L;
         ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
         // act - assert
-        mocMvc.perform(put("/api/usuarios/{id}",id)
+        mocMvc.perform(put("/usuarios/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(usuario)))
                 .andExpect(status().isOk());
@@ -64,12 +64,12 @@ class ComandoControladorUsuarioTest {
         // arrange
         Long id = 3L;
         // act - assert
-        mocMvc.perform(delete("/api/usuarios/{id}",id)
+        mocMvc.perform(delete("/usuarios/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
-        mocMvc.perform(get("/api/usuarios")
+        mocMvc.perform(get("/usuarios")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)));

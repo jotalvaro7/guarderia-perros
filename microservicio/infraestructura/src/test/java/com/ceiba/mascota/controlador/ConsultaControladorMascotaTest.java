@@ -34,7 +34,7 @@ class ConsultaControladorMascotaTest {
         //arrange
         Long id = 1L;
         //act - asse
-        mockMvc.perform(get("/api/mascotas/usuario/{id}", id)
+        mockMvc.perform(get("/mascotas/usuario/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
@@ -50,7 +50,7 @@ class ConsultaControladorMascotaTest {
         //arrange
         Long id = 1L;
         //act-asse
-        mockMvc.perform(get("/api/mascotas/{id}", id)
+        mockMvc.perform(get("/mascotas/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.nombre", is("Max")))

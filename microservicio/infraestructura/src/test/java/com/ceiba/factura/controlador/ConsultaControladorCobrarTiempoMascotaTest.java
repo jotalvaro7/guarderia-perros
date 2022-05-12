@@ -31,7 +31,7 @@ class ConsultaControladorCobrarTiempoMascotaTest {
     void deberiaObtenerLaFacturDeCobroDeLaMascota() throws Exception {
         Long id = 1L;
 
-        mockMvc.perform((get("/api/cobrar/{id}", id))
+        mockMvc.perform((get("/cobrar/{id}", id))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.nombreMascota", is("Max")));

@@ -31,7 +31,7 @@ class ConsultaControladorTrmTest {
     @DisplayName("Deberia Obtener El Valor Del TRM Del Dia Actual")
     void deberiaObtenerElValorDelTrmDelDiaActual() throws Exception {
 
-        mockMvc.perform(get("/api/trm")
+        mockMvc.perform(get("/trm")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.unit", is("COP")))

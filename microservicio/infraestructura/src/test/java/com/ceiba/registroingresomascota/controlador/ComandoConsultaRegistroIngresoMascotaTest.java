@@ -35,7 +35,7 @@ class ComandoConsultaRegistroIngresoMascotaTest {
     void deberiaObtenerElRegistroDeIngresoDeUnaMascota() throws Exception {
         Long id = 1L;
 
-        mockMvc.perform(get("/api/registro/ingreso/mascota/{id}", id)
+        mockMvc.perform(get("/registro/ingreso/mascota/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))

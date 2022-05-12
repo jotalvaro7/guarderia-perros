@@ -36,7 +36,7 @@ class ComandoControladorMascotaTest {
         //arrange
         ComandoMascota mascota = new ComandoMascotaTestDataBuilder().build();
         //act -assert
-        mockMvc.perform(post("/api/mascotas")
+        mockMvc.perform(post("/mascotas")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(mascota)))
                 .andExpect(status().isOk())
@@ -50,7 +50,7 @@ class ComandoControladorMascotaTest {
         Long id = 1L;
         ComandoMascota mascota = new ComandoMascotaTestDataBuilder().build();
         //act - assert
-        mockMvc.perform(put("/api/mascotas/{id}", id)
+        mockMvc.perform(put("/mascotas/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(mascota)))
                 .andExpect(status().isOk());
@@ -61,7 +61,7 @@ class ComandoControladorMascotaTest {
     void deberiaEliminarUnaMascota() throws Exception {
         Long id = 4L;
 
-        mockMvc.perform(delete("/api/mascotas/{id}", id)
+        mockMvc.perform(delete("/mascotas/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
