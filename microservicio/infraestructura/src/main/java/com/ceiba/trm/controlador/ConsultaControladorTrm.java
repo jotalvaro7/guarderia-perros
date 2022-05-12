@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import java.time.LocalDate;
 
 @RestController
-@RequestMapping("api/trm")
+@RequestMapping("trm")
 public class ConsultaControladorTrm {
 
     @GetMapping

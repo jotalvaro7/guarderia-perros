@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 @RestController
-@RequestMapping("api/mascotas")
+@RequestMapping("mascotas")
 @Api(tags = {"Controlador comando mascota"})
 public class ComandoControladorMascota {
 
